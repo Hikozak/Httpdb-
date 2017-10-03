@@ -20,4 +20,7 @@ export class RemovepersonComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteData(){
+
+  }
 }
