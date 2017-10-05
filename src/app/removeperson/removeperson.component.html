@@ -1,20 +1,26 @@
-<div class="container">
-  <div class="row">
-    <form (ngSubmit)="deleteData(editForm)" #editForm="ngForm">
-       <div class="form-group">
-          <label for=""></label>
-          <input type="text" class="form-control" id="fname" [(ngModel)]="fname" name="fname"> 
-       </div>
-       <div class="form-group">
-          <label for=""></label>
-          <input type="text" class="form-control" id="lname" [(ngModel)]=lname name="lname">
-       </div>  
-       <button class="btn btn-primary">
-            Delete Information
-       </button>
-    </form>  
-  </div>
-  <DIV class="row">
-    <app-listing (modifyClicked)="editData($event)"></app-listing>
-  </DIV>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        First Name
+      </th>
+      <th>
+        Last Name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let person of peopleCollection">
+      <td>{{ person.firstName }}</td>
+      <td>{{ person.lastName }}</td>
+      <td>
+        <button (click)="deleteData(person.id)" class="btn btn-warning">
+           Remove 
+        </button>
+      </td>
+      <td>
+        <a href="https://firstprojectdb.firebaseio.com/people/{{ person.id }}.json">Link</a>
+      </td>
+    </tr> 
+  </tbody>
+</table>
